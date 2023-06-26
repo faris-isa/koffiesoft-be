@@ -1,0 +1,7 @@
+{
+    "secretKey" : "koffiesoft",
+    "corsList" : ["http://localhost:5173", "*"],
+    "databases": {
+        "path": "mysql://root:@localhost/koffiesoft"
+    }
+}
