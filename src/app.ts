@@ -43,9 +43,26 @@ export default async function start(){
     })
 
     app.get
-    <{Params: {operand1: string, op: string, operand2: string}}>
+    <{Params: {operand1: number, op: string, operand2: number}}>
     ("/calc/:operand1/:op/:operand2", async (req, res)=>{
-        return res.format([{operand1: req.params.operand1, operand2: req.params.operand2, op: req.params.op,}], 200, "Successful", "Operator Success")
+        let result, op = req.params.op, operand1 = req.params.operand1, operand2 = req.params.operand2;
+        switch (op) {
+            case "+":
+                result = Number(operand1) + Number(operand2);
+                break;
+            case "-":
+                result = Number(operand1) - Number(operand2);
+                break;
+            case "*":
+                result = Number(operand1) * Number(operand2);
+                break;
+            case "/":
+                result = Number(operand1) / Number(operand2);
+                break;
+            default:
+                return res.format([], 400, "Error", "Invalid Operations");
+        }
+        return res.format([{result}], 200, "no error", "OK")
     })
 
     app.register(require("./controllers/auth"), { prefix: "/auth" })

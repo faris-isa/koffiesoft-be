@@ -31,7 +31,7 @@ module.exports = async (app: FastifyInstance) => {
             name: req.body.name,
             password: password
         });
-        if(createdUser) return res.format([{createdUser}], 200, "Succesfull", "User created !")
+        if(createdUser) return res.format([{createdUser}], 200, "no error", "OK")
 
     })
 
