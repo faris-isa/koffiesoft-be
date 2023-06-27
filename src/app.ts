@@ -47,16 +47,16 @@ export default async function start(){
     ("/calc/:operand1/:op/:operand2", async (req, res)=>{
         let result, op = req.params.op, operand1 = req.params.operand1, operand2 = req.params.operand2;
         switch (op) {
-            case "+":
+            case "tambah":
                 result = Number(operand1) + Number(operand2);
                 break;
-            case "-":
+            case "kurang":
                 result = Number(operand1) - Number(operand2);
                 break;
-            case "*":
+            case "kali":
                 result = Number(operand1) * Number(operand2);
                 break;
-            case "/":
+            case "bagi":
                 result = Number(operand1) / Number(operand2);
                 break;
             default:
